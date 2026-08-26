@@ -1,0 +1,214 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\forpractices.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\forpractices.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\controller\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\controller\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\dto\\productcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\dto\\productcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Migrations\\20260826105352_added_Product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ForPractices\\Migrations\\20260826105352_added_Product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\dto\\productupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\dto\\productupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AgIAAPoUAAAAAAAAAAAIwAUVAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-08-26T11:06:18.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ForPractices.http",
+              "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\ForPractices.http",
+              "RelativeDocumentMoniker": "ForPractices\\ForPractices.http",
+              "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\ForPractices.http",
+              "RelativeToolTip": "ForPractices\\ForPractices.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2026-08-26T10:55:55.274Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "20260826105352_added_Product.cs",
+              "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Migrations\\20260826105352_added_Product.cs",
+              "RelativeDocumentMoniker": "ForPractices\\Migrations\\20260826105352_added_Product.cs",
+              "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Migrations\\20260826105352_added_Product.cs",
+              "RelativeToolTip": "ForPractices\\Migrations\\20260826105352_added_Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-26T10:53:52.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Program.cs",
+              "RelativeDocumentMoniker": "ForPractices\\Program.cs",
+              "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Program.cs",
+              "RelativeToolTip": "ForPractices\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T19:07:27.371Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ProductUpdateDto.cs",
+              "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\DTO\\ProductUpdateDto.cs",
+              "RelativeDocumentMoniker": "ForPractices\\DTO\\ProductUpdateDto.cs",
+              "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\DTO\\ProductUpdateDto.cs",
+              "RelativeToolTip": "ForPractices\\DTO\\ProductUpdateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T05:32:24.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProductCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\DTO\\ProductCreateDto.cs",
+              "RelativeDocumentMoniker": "ForPractices\\DTO\\ProductCreateDto.cs",
+              "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\DTO\\ProductCreateDto.cs",
+              "RelativeToolTip": "ForPractices\\DTO\\ProductCreateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T05:12:56.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Controller\\ProductController.cs",
+              "RelativeDocumentMoniker": "ForPractices\\Controller\\ProductController.cs",
+              "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Controller\\ProductController.cs",
+              "RelativeToolTip": "ForPractices\\Controller\\ProductController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAIwFkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T05:10:58.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "ForPractices\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "ForPractices\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T05:02:12.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Model\\Product.cs",
+              "RelativeDocumentMoniker": "ForPractices\\Model\\Product.cs",
+              "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Model\\Product.cs",
+              "RelativeToolTip": "ForPractices\\Model\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T04:46:11.974Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Model\\User.cs",
+              "RelativeDocumentMoniker": "ForPractices\\Model\\User.cs",
+              "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Model\\User.cs",
+              "RelativeToolTip": "ForPractices\\Model\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T04:43:16.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\appsettings.json",
+              "RelativeDocumentMoniker": "ForPractices\\appsettings.json",
+              "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\appsettings.json",
+              "RelativeToolTip": "ForPractices\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-08-25T04:38:06.523Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
