@@ -1,13 +1,16 @@
 ﻿using ForPractices.Data;
-using ForPractices.DTO;
+using ForPractices.DTO.Product;
 using ForPractices.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace ForPractices.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -33,6 +36,8 @@ namespace ForPractices.Controller
         {
             if (string.IsNullOrWhiteSpace(create.ProductName))
                 return BadRequest("Product name is required.");
+
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
 
             var product = new Product
             {
