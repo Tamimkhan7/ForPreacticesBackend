@@ -1,4 +1,5 @@
 using ForPractices.Data;
+using ForPractices.Service.Email;
 using ForPractices.Service.JWT;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -18,7 +19,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(conn
 
 
 builder.Services.AddScoped<JwtTokenService>();
-
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

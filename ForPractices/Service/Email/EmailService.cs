@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
 
 namespace ForPractices.Service.Email
@@ -13,10 +12,10 @@ namespace ForPractices.Service.Email
             _config = config;
         }
 
-        public async Task<IActionResult> SendEmailAsync(string to, string subject, string body)
+        public async Task SendEmailAsync(string to, string subject, string body)
         {
             var host = _config["smtp:Host"];
-            var port = _config["smtp:Port"];
+            var port = int.Parse(_config["smtp:Port"]);
             var email = _config["smtp:Email"];
             var password = _config["smtp:Password"];
 
@@ -26,6 +25,18 @@ namespace ForPractices.Service.Email
                 EnableSsl = true
             };
 
+
+            using var mail = new MailMessage
+            {
+                From = new MailAddress(email),
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            };
+
+            mail.To.Add(to);
+
+            await client.SendMailAsync(mail);
 
         }
     }
