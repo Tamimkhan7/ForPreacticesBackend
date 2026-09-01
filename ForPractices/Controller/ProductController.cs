@@ -24,11 +24,10 @@ namespace ForPractices.Controller
         [HttpGet]
         public async Task<IActionResult> GetProduct()
         {
-            if (!_context.Products.Any())
+            var product = await _context.Products.ToListAsync();
+            if (product.Count() == 0)
                 return NotFound("No Products found.");
-
-            var products = await _context.Products.ToListAsync();
-            return Ok(products);
+            return Ok(product);
         }
 
         [HttpPost]

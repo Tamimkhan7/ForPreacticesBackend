@@ -26,7 +26,7 @@ namespace ForPractices.Controller
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterRequestDto register)
         {
-
+            register.Email = register.Email.Trim().ToString();
             var exists = await _context.Users.FirstOrDefaultAsync(x => x.Email == register.Email);
             if (exists != null)
                 return BadRequest("Already register at this email");
@@ -48,6 +48,7 @@ namespace ForPractices.Controller
         public async Task<IActionResult> Login(LoginRequestDto login)
         {
 
+            login.Email = login.Email.Trim().ToString();
             var exists = await _context.Users.FirstOrDefaultAsync(x => x.Email == login.Email);
             if (exists == null)
                 return BadRequest("Invalid email or password");
@@ -74,6 +75,7 @@ namespace ForPractices.Controller
         [HttpPost("forgot-password")]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordDto request)
         {
+            request.Email = request.Email.Trim().ToString();
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == request.Email);
             if (user == null)
                 return Ok("If this email exists, a reset link has been sent");
