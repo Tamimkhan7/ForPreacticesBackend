@@ -50,6 +50,14 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+
+//for admin user seeding
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    await DbSeeder.Seed(context);
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();

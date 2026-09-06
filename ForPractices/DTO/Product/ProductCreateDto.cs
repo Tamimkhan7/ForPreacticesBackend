@@ -9,6 +9,5 @@ namespace ForPractices.DTO.Product
         public string? ProductDescription { get; set; }
         public decimal ProductPrice { get; set; } = 0;
         public decimal ProductQuantity { get; set; } = 0;
-        public int UserId { get; set; }
     }
 }

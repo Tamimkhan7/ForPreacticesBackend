@@ -1,9 +1,10 @@
 ﻿using ForPractices.Data;
+using ForPractices.DTO.Pagination;
 using ForPractices.DTO.Product;
+using ForPractices.Extensions;
 using ForPractices.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 namespace ForPractices.Controller
@@ -20,13 +21,13 @@ namespace ForPractices.Controller
             _context = context;
         }
 
-
         [HttpGet]
-        public async Task<IActionResult> GetProduct()
+        public async Task<IActionResult> GetProduct([FromQuery] PaginationParams pagination)
         {
-            var product = await _context.Products.ToListAsync();
-            if (product.Count() == 0)
-                return NotFound("No Products found.");
+            var product = await _context.Products
+                .OrderByDescending(p => p.CreateAt)
+                .ToPagedResultAsync(pagination);
+
             return Ok(product);
         }
 
@@ -45,7 +46,7 @@ namespace ForPractices.Controller
                 ProductPrice = create.ProductPrice,
                 ProductQuantity = create.ProductQuantity,
                 CreateAt = DateTime.UtcNow,
-                UserId = create.UserId
+                UserId = userId
             };
 
             _context.Products.Add(product);
@@ -77,6 +78,7 @@ namespace ForPractices.Controller
 
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{Id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {

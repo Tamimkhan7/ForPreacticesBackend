@@ -77,8 +77,8 @@ namespace ForPractices.Controller
         }
 
 
-        [HttpPost("logout")]
         [Authorize]
+        [HttpPost("logout")]
         public async Task<IActionResult> LogOut(RefreshTokenDto dto)
         {
             var user = await _context.Users.FirstOrDefaultAsync(x => x.RefreshToken == dto.RefreshToken);
