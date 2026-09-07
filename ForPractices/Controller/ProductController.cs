@@ -24,9 +24,21 @@ namespace ForPractices.Controller
         [HttpGet]
         public async Task<IActionResult> GetProduct([FromQuery] PaginationParams pagination)
         {
-            var product = await _context.Products
-                .OrderByDescending(p => p.CreateAt)
-                .ToPagedResultAsync(pagination);
+            var query = _context.Products.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(pagination.SearchValue))
+                query = query.Where(p => p.ProductName.ToLower().Trim().Contains(pagination.SearchValue.ToLower().Trim()));
+
+            if (pagination.minValue.HasValue)
+                query = query.Where(p => p.ProductPrice >= pagination.minValue.Value);
+
+            if (pagination.maxValue.HasValue)
+                query = query.Where(p => p.ProductPrice <= pagination.maxValue.Value);
+
+
+            var product = await query
+              .OrderByDescending(p => p.CreateAt)
+              .ToPagedResultAsync(pagination);
 
             return Ok(product);
         }

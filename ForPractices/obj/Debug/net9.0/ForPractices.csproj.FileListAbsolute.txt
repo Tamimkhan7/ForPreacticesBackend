@@ -158,4 +158,3 @@ C:\Users\Tamim\OneDrive\Desktop\API Project\ForPractices\ForPractices\bin\Debug\
 C:\Users\Tamim\OneDrive\Desktop\API Project\ForPractices\ForPractices\bin\Debug\net9.0\BouncyCastle.Cryptography.dll
 C:\Users\Tamim\OneDrive\Desktop\API Project\ForPractices\ForPractices\bin\Debug\net9.0\MailKit.dll
 C:\Users\Tamim\OneDrive\Desktop\API Project\ForPractices\ForPractices\bin\Debug\net9.0\MimeKit.dll
-C:\Users\Tamim\OneDrive\Desktop\API Project\ForPractices\ForPractices\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
