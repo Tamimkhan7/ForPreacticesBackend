@@ -10,5 +10,6 @@ namespace ForPractices.DTO.Product
         public decimal ProductPrice { get; set; } = 0;
         public decimal ProductQuantity { get; set; } = 0;
         public DateTime DateTime { get; set; }
+        public IFormFile? Image { get; set; }
     }
 }

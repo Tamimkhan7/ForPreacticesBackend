@@ -12,9 +12,9 @@ namespace ForPractices.Model
         public decimal ProductQuantity { get; set; } = 0;
         public DateTime CreateAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdateAt { get; set; }
+        public string? ImageUrl { get; set; }
         public int UserId { get; set; }
         public User? User { get; set; }
-
     }
 }
 
