@@ -3,6 +3,7 @@ using ForPractices.DTO.Pagination;
 using ForPractices.DTO.Product;
 using ForPractices.Extensions;
 using ForPractices.Model;
+using ForPractices.Service.FileUpload;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -15,10 +16,12 @@ namespace ForPractices.Controller
     public class ProductController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly IFileUploadService _fileUploadService;
 
-        public ProductController(AppDbContext context)
+        public ProductController(AppDbContext context, IFileUploadService fileUploadService)
         {
             _context = context;
+            _fileUploadService = fileUploadService;
         }
 
         [HttpGet]
@@ -44,12 +47,17 @@ namespace ForPractices.Controller
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateProduct(ProductCreateDto create)
+        public async Task<IActionResult> CreateProduct([FromForm] ProductCreateDto create)
         {
             if (string.IsNullOrWhiteSpace(create.ProductName))
                 return BadRequest("Product name is required.");
 
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+
+            string? imageUrl = null;
+            if (create.Image != null)
+                imageUrl = await _fileUploadService.UploadFileAsync(create.Image, "ProductImages");
+
 
             var product = new Product
             {
@@ -58,7 +66,8 @@ namespace ForPractices.Controller
                 ProductPrice = create.ProductPrice,
                 ProductQuantity = create.ProductQuantity,
                 CreateAt = DateTime.UtcNow,
-                UserId = userId
+                UserId = userId,
+                ImageUrl = imageUrl
             };
 
             _context.Products.Add(product);
@@ -68,7 +77,7 @@ namespace ForPractices.Controller
         }
 
         [HttpPut("{Id}")]
-        public async Task<IActionResult> UpdateProduct(int Id, ProductUpdateDto update)
+        public async Task<IActionResult> UpdateProduct(int Id, [FromForm] ProductUpdateDto update)
         {
             if (string.IsNullOrWhiteSpace(update.ProductName))
                 return BadRequest("Product is empty.");
@@ -82,6 +91,12 @@ namespace ForPractices.Controller
             Exists.ProductPrice = update.ProductPrice;
             Exists.ProductQuantity = update.ProductQuantity;
             Exists.UpdateAt = DateTime.UtcNow;
+
+            if (update.Image != null)
+            {
+                _fileUploadService.DeleteFile(Exists.ImageUrl);
+                Exists.ImageUrl = await _fileUploadService.UploadFileAsync(update.Image, "ProductImages");
+            }
 
             await _context.SaveChangesAsync();
 
