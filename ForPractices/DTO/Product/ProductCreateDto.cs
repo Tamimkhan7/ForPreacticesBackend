@@ -12,3 +12,5 @@ namespace ForPractices.DTO.Product
         public IFormFile? Image { get; set; } //receiving image file from the client, and image hold:- fileName, filePath, fileType, fileSize, data received from the client from-data.
     }
 }
+
+//public IFormFile? Image {get; set; }
