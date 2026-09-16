@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|solutionrelative:forpractices.tests\\authcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices.tests\\helpers\\testdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|solutionrelative:forpractices.tests\\helpers\\testdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices.tests\\helpers\\testdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|solutionrelative:forpractices.tests\\helpers\\testdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\service\\email\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,15 +34,16 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Controller\\AuthController.cs",
               "RelativeDocumentMoniker": "ForPractices\\Controller\\AuthController.cs",
               "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Controller\\AuthController.cs",
               "RelativeToolTip": "ForPractices\\Controller\\AuthController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAA6wB4AAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAiwC8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-15T04:36:47.718Z"
+              "WhenOpened": "2026-09-15T04:36:47.718Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -64,14 +65,14 @@
               "RelativeDocumentMoniker": "ForPractices.Tests\\AuthControllerTests.cs",
               "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices.Tests\\AuthControllerTests.cs",
               "RelativeToolTip": "ForPractices.Tests\\AuthControllerTests.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAUwFcAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAAQwKoAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-12T09:21:45.522Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "TestDbContextFactory.cs",
               "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices.Tests\\Helpers\\TestDbContextFactory.cs",
               "RelativeDocumentMoniker": "ForPractices.Tests\\Helpers\\TestDbContextFactory.cs",
@@ -79,8 +80,7 @@
               "RelativeToolTip": "ForPractices.Tests\\Helpers\\TestDbContextFactory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-12T08:43:58.387Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-12T08:43:58.387Z"
             },
             {
               "$type": "Document",
