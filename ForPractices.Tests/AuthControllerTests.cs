@@ -13,7 +13,6 @@ namespace ForPractices.Tests
     public class AuthControllerTests
     {
 
-
         [Fact]
         public async Task Register_WithNewEmail_ReturnsOk()
         {

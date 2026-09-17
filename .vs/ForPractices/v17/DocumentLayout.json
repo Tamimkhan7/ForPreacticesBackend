@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices.tests\\productcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|solutionrelative:forpractices.tests\\productcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\controller\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\controller\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices.tests\\authcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|solutionrelative:forpractices.tests\\authcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|solutionrelative:forpractices.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices.tests\\helpers\\testdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|solutionrelative:forpractices.tests\\helpers\\testdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\service\\email\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\service\\email\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|solutionrelative:forpractices.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\service\\email\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\service\\email\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +38,37 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductControllerTests.cs",
+              "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices.Tests\\ProductControllerTests.cs",
+              "RelativeDocumentMoniker": "ForPractices.Tests\\ProductControllerTests.cs",
+              "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices.Tests\\ProductControllerTests.cs",
+              "RelativeToolTip": "ForPractices.Tests\\ProductControllerTests.cs",
+              "ViewState": "AgIAALwAAAAAAAAAAAAowMoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-17T03:58:28.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Controller\\ProductController.cs",
+              "RelativeDocumentMoniker": "ForPractices\\Controller\\ProductController.cs",
+              "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Controller\\ProductController.cs",
+              "RelativeToolTip": "ForPractices\\Controller\\ProductController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwC0AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-17T03:49:12.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Controller\\AuthController.cs",
               "RelativeDocumentMoniker": "ForPractices\\Controller\\AuthController.cs",
@@ -42,12 +76,11 @@
               "RelativeToolTip": "ForPractices\\Controller\\AuthController.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAiwC8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-15T04:36:47.718Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-15T04:36:47.718Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "EmailService.cs",
               "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Service\\Email\\EmailService.cs",
               "RelativeDocumentMoniker": "ForPractices\\Service\\Email\\EmailService.cs",
@@ -59,20 +92,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "AuthControllerTests.cs",
               "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices.Tests\\AuthControllerTests.cs",
               "RelativeDocumentMoniker": "ForPractices.Tests\\AuthControllerTests.cs",
               "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices.Tests\\AuthControllerTests.cs",
               "RelativeToolTip": "ForPractices.Tests\\AuthControllerTests.cs",
-              "ViewState": "AgIAAJ0AAAAAAAAAAAAQwKoAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAALMAAAAAAAAAAAAIwC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-12T09:21:45.522Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-12T09:21:45.522Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "TestDbContextFactory.cs",
               "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices.Tests\\Helpers\\TestDbContextFactory.cs",
               "RelativeDocumentMoniker": "ForPractices.Tests\\Helpers\\TestDbContextFactory.cs",
@@ -84,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "UnitTest1.cs",
               "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices.Tests\\UnitTest1.cs",
               "RelativeDocumentMoniker": "ForPractices.Tests\\UnitTest1.cs",
