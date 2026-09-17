@@ -215,6 +215,38 @@ namespace ForPractices.Tests
             Assert.Equal(1, pagedResult.Items.Count);
             Assert.Equal(1, pagedResult.PageNumber);
         }
+
+
+
+        [Fact]
+        public async Task GetProduct_ReturnsEmptyProducts()
+        {
+            //arrange
+
+            var context = TestDbContextFactory.Create();
+
+            var fileUploadServiceMock = new Mock<IFileUploadService>();
+
+            var productController = new ProductController(context, fileUploadServiceMock.Object);
+
+
+            //act
+
+            //pagination default value is PageNumber = 1, PageSize = 12
+            var pagination = new PaginationParams();
+
+            //call getProduct with pagination
+            var result = await productController.GetProduct(pagination);
+
+            //Assert
+            var okResult = Assert.IsType<OkObjectResult>(result);
+            var pagedResult = Assert.IsType<PagedResult<Product>>(okResult.Value);
+
+
+            Assert.Equal(0, pagedResult.TotalCount);
+            Assert.Empty(pagedResult.Items);
+            Assert.Equal(1, pagedResult.PageNumber);
+        }
     }
 }
 
