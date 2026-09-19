@@ -55,8 +55,8 @@ namespace ForPractices.Controller
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
 
             string? imageUrl = null;
-            if (create.Image != null)
-                imageUrl = await _fileUploadService.UploadFileAsync(create.Image, "ProductImages");
+            if (create.Image != null) { }
+            imageUrl = await _fileUploadService.UploadFileAsync(create.Image, "ProductImages");
 
 
             var product = new Product
@@ -66,8 +66,8 @@ namespace ForPractices.Controller
                 ProductPrice = create.ProductPrice,
                 ProductQuantity = create.ProductQuantity,
                 CreateAt = DateTime.UtcNow,
-                UserId = userId,
-                ImageUrl = imageUrl
+                UserId = userId
+
             };
 
             _context.Products.Add(product);
