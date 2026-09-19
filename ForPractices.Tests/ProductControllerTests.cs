@@ -1,8 +1,10 @@
 using ForPractices.Controller;
 using ForPractices.DTO.Pagination;
+using ForPractices.DTO.Product;
 using ForPractices.Model;
 using ForPractices.Service.FileUpload;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Moq;
 
 namespace ForPractices.Tests
@@ -116,7 +118,7 @@ namespace ForPractices.Tests
             //pagination default value is PageNumber = 1, PageSize = 12
             var pagination = new PaginationParams
             {
-                minValue = 500
+                minValue = 600
             };
             //call getProduct with pagination
             var result = await productController.GetProduct(pagination);
@@ -126,8 +128,8 @@ namespace ForPractices.Tests
             var pagedResult = Assert.IsType<PagedResult<Product>>(okResult.Value);
 
 
-            Assert.Equal(4, pagedResult.TotalCount);
-            Assert.Equal(4, pagedResult.Items.Count);
+            Assert.Equal(3, pagedResult.TotalCount);
+            Assert.Equal(3, pagedResult.Items.Count);
             Assert.Equal(1, pagedResult.PageNumber);
         }
 
@@ -246,6 +248,35 @@ namespace ForPractices.Tests
             Assert.Equal(0, pagedResult.TotalCount);
             Assert.Empty(pagedResult.Items);
             Assert.Equal(1, pagedResult.PageNumber);
+
+        }
+
+        [Fact]
+        public async Task CreateProduct_ReturnsBadRequestWithEmptyModel()
+        {
+            //arrange
+
+            var context = TestDbContextFactory.Create();
+
+            var fileUploadServiceMock = new Mock<IFileUploadService>();
+
+            var productController = new ProductController(context, fileUploadServiceMock.Object);
+
+
+            //act
+            var createProduct = new ProductCreateDto();
+
+
+            //call createProduct with empty creteProduct
+            var result = await productController.CreateProduct(createProduct);
+
+            //Assert
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
+            Assert.Equal("Product name is required.", badRequestResult.Value);
+
+
+            var productCount = await context.Products.CountAsync();
+            Assert.Equal(0, productCount);
         }
     }
 }
