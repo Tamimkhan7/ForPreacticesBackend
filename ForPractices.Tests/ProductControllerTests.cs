@@ -4,6 +4,7 @@ using ForPractices.DTO.Product;
 using ForPractices.Model;
 using ForPractices.Service.FileUpload;
 using ForPractices.Tests.Helpers;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Moq;
@@ -317,6 +318,55 @@ namespace ForPractices.Tests
             var productFound = await context.Products.FirstOrDefaultAsync(x => x.ProductName == "Tamim");
             Assert.NotNull(productFound);
 
+            var productCount = await context.Products.CountAsync();
+            Assert.Equal(1, productCount);
+        }
+
+
+
+        [Fact]
+        public async Task CreateProduct_ReturnWithImage()
+        {
+            //arrange
+
+            var context = TestDbContextFactory.Create();
+
+            var fileUploadServiceMock = new Mock<IFileUploadService>();
+            var IFormFileMock = new Mock<IFormFile>();
+
+            var productController = new ProductController(context, fileUploadServiceMock.Object);
+
+            ClaimsHelper.SetFakaUser(productController, 1);
+
+
+            //act
+            var createProduct = new ProductCreateDto
+            {
+                ProductName = "Tamim",
+                ProductDescription = "new ara in market",
+                ProductPrice = 100,
+                ProductQuantity = 120,
+                Image = IFormFileMock.Object,
+            };
+
+            fileUploadServiceMock.Setup(x => x.UploadFileAsync(It.IsAny<IFormFile>(), It.IsAny<string>()))
+            .ReturnsAsync("/uploads/products/fake-image.jpg");
+
+            var result = await productController.CreateProduct(createProduct);
+
+            //Assert
+            var OKResult = Assert.IsType<OkObjectResult>(result);
+
+            fileUploadServiceMock.Verify(x => x.UploadFileAsync(It.IsAny<IFormFile>(), It.IsAny<string>()), Times.Once);
+
+            //this name is find any product
+            var productFound = await context.Products.FirstOrDefaultAsync(x => x.ProductName == "Tamim");
+            Assert.NotNull(productFound);
+
+            //setup verifing
+            Assert.Equal("/uploads/products/fake-image.jpg", productFound.ImageUrl);
+
+            //db product count
             var productCount = await context.Products.CountAsync();
             Assert.Equal(1, productCount);
         }
