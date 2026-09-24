@@ -157,3 +157,4 @@ C:\Users\Tamim\OneDrive\Desktop\API Project\ForPractices\ForPractices.Tests\obj\
 C:\Users\Tamim\OneDrive\Desktop\API Project\ForPractices\ForPractices.Tests\obj\Debug\net9.0\ForPractices.Tests.pdb
 C:\Users\Tamim\OneDrive\Desktop\API Project\ForPractices\ForPractices.Tests\obj\Debug\net9.0\ForPractices.Tests.genruntimeconfig.cache
 C:\Users\Tamim\OneDrive\Desktop\API Project\ForPractices\ForPractices.Tests\obj\Debug\net9.0\ref\ForPractices.Tests.dll
+C:\Users\Tamim\OneDrive\Desktop\API Project\ForPractices\ForPractices.Tests\bin\Debug\net9.0\libman.json

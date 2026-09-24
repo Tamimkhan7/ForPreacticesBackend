@@ -102,8 +102,6 @@ namespace ForPractices.Controller
             await _context.SaveChangesAsync();
 
             return Ok(Exists);
-
-
         }
 
         [Authorize(Roles = "Admin")]

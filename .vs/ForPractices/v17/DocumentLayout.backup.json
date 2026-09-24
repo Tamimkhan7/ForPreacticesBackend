@@ -3,52 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices.tests\\productcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|solutionrelative:forpractices.tests\\productcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\controller\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\controller\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\service\\email\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\service\\email\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices.tests\\helpers\\claimshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|solutionrelative:forpractices.tests\\helpers\\claimshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices.tests\\authcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|solutionrelative:forpractices.tests\\authcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\service\\jwt\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\service\\jwt\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices.tests\\productcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|solutionrelative:forpractices.tests\\productcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\controller\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|solutionrelative:forpractices.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\service\\email\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\service\\email\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\controller\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\controller\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices.tests\\helpers\\testdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|solutionrelative:forpractices.tests\\helpers\\testdbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\service\\email\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\service\\email\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\service\\fileupload\\fileuploadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\service\\fileupload\\fileuploadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices.tests\\helpers\\claimshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C4D9E2-7BB3-4D8A-B4D0-ACFBED74733D}|ForPractices.Tests\\ForPractices.Tests.csproj|solutionrelative:forpractices.tests\\helpers\\claimshelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\service\\jwt\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\service\\jwt\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\service\\email\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\service\\email\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|c:\\users\\tamim\\onedrive\\desktop\\api project\\forpractices\\forpractices\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DB005DA-4868-41A1-900A-2A77AE809CBD}|ForPractices\\ForPractices.csproj|solutionrelative:forpractices\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,7 +66,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
+              "Title": "FileUploadService.cs",
+              "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Service\\FileUpload\\FileUploadService.cs",
+              "RelativeDocumentMoniker": "ForPractices\\Service\\FileUpload\\FileUploadService.cs",
+              "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Service\\FileUpload\\FileUploadService.cs",
+              "RelativeToolTip": "ForPractices\\Service\\FileUpload\\FileUploadService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-22T19:05:22.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "IEmailService.cs",
               "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Service\\Email\\IEmailService.cs",
               "RelativeDocumentMoniker": "ForPractices\\Service\\Email\\IEmailService.cs",
@@ -85,14 +98,14 @@
               "RelativeDocumentMoniker": "ForPractices\\Model\\User.cs",
               "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Model\\User.cs",
               "RelativeToolTip": "ForPractices\\Model\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-19T20:35:28.203Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Model\\Product.cs",
               "RelativeDocumentMoniker": "ForPractices\\Model\\Product.cs",
@@ -100,97 +113,103 @@
               "RelativeToolTip": "ForPractices\\Model\\Product.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-19T19:35:49.797Z"
+              "WhenOpened": "2026-09-19T19:35:49.797Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "ClaimsHelper.cs",
               "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices.Tests\\Helpers\\ClaimsHelper.cs",
               "RelativeDocumentMoniker": "ForPractices.Tests\\Helpers\\ClaimsHelper.cs",
               "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices.Tests\\Helpers\\ClaimsHelper.cs",
               "RelativeToolTip": "ForPractices.Tests\\Helpers\\ClaimsHelper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-19T15:14:19.763Z"
+              "WhenOpened": "2026-09-19T15:14:19.763Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "JwtTokenService.cs",
               "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Service\\JWT\\JwtTokenService.cs",
               "RelativeDocumentMoniker": "ForPractices\\Service\\JWT\\JwtTokenService.cs",
               "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Service\\JWT\\JwtTokenService.cs",
               "RelativeToolTip": "ForPractices\\Service\\JWT\\JwtTokenService.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAABJAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwCYAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-19T14:56:52.148Z"
+              "WhenOpened": "2026-09-19T14:56:52.148Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ProductControllerTests.cs",
               "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices.Tests\\ProductControllerTests.cs",
               "RelativeDocumentMoniker": "ForPractices.Tests\\ProductControllerTests.cs",
               "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices.Tests\\ProductControllerTests.cs",
               "RelativeToolTip": "ForPractices.Tests\\ProductControllerTests.cs",
-              "ViewState": "AgIAAFsBAAAAAAAAAAAcwGYBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGcBAAAAAAAAAAAewGYBAAB4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-17T03:58:28.239Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Controller\\ProductController.cs",
               "RelativeDocumentMoniker": "ForPractices\\Controller\\ProductController.cs",
               "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Controller\\ProductController.cs",
               "RelativeToolTip": "ForPractices\\Controller\\ProductController.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAowEcAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowF4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-17T03:49:12.699Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Controller\\AuthController.cs",
               "RelativeDocumentMoniker": "ForPractices\\Controller\\AuthController.cs",
               "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Controller\\AuthController.cs",
               "RelativeToolTip": "ForPractices\\Controller\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAmwGMAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-15T04:36:47.718Z"
+              "WhenOpened": "2026-09-15T04:36:47.718Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "EmailService.cs",
-              "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Service\\Email\\EmailService.cs",
-              "RelativeDocumentMoniker": "ForPractices\\Service\\Email\\EmailService.cs",
-              "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Service\\Email\\EmailService.cs",
-              "RelativeToolTip": "ForPractices\\Service\\Email\\EmailService.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBgAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-15T04:17:46.699Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "AuthControllerTests.cs",
               "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices.Tests\\AuthControllerTests.cs",
               "RelativeDocumentMoniker": "ForPractices.Tests\\AuthControllerTests.cs",
               "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices.Tests\\AuthControllerTests.cs",
               "RelativeToolTip": "ForPractices.Tests\\AuthControllerTests.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAowG8AAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAKcBAAAAAAAAAAAUwLABAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-12T09:21:45.522Z"
+              "WhenOpened": "2026-09-12T09:21:45.522Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 4,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Service\\Email\\EmailService.cs",
+              "RelativeDocumentMoniker": "ForPractices\\Service\\Email\\EmailService.cs",
+              "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices\\Service\\Email\\EmailService.cs",
+              "RelativeToolTip": "ForPractices\\Service\\Email\\EmailService.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowBgAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-15T04:17:46.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "TestDbContextFactory.cs",
               "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices.Tests\\Helpers\\TestDbContextFactory.cs",
               "RelativeDocumentMoniker": "ForPractices.Tests\\Helpers\\TestDbContextFactory.cs",
@@ -198,19 +217,8 @@
               "RelativeToolTip": "ForPractices.Tests\\Helpers\\TestDbContextFactory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-12T08:43:58.387Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UnitTest1.cs",
-              "DocumentMoniker": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices.Tests\\UnitTest1.cs",
-              "RelativeDocumentMoniker": "ForPractices.Tests\\UnitTest1.cs",
-              "ToolTip": "C:\\Users\\Tamim\\OneDrive\\Desktop\\API Project\\ForPractices\\ForPractices.Tests\\UnitTest1.cs",
-              "RelativeToolTip": "ForPractices.Tests\\UnitTest1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-12T08:40:03.451Z"
+              "WhenOpened": "2026-09-12T08:43:58.387Z",
+              "EditorCaption": ""
             }
           ]
         }
