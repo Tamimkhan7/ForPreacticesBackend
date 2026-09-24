@@ -116,6 +116,10 @@ namespace ForPractices.Controller
         [HttpPost("reset-password")]
         public async Task<IActionResult> ResetPassword(ResetPasswordDto request)
         {
+
+            if (string.IsNullOrWhiteSpace(request.Token))
+                return BadRequest("Invalid or expired reset token");
+
             var user = await _context.Users.FirstOrDefaultAsync(x => x.PasswordResetToken == request.Token);
 
             if (user == null || user.PasswordResetTokenExpiry < DateTime.UtcNow)

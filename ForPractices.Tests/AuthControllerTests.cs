@@ -198,8 +198,6 @@ namespace ForPractices.Tests
             Assert.False(string.IsNullOrEmpty(savedUser.PasswordHash));
         }
 
-
-
         [Fact]
         public async Task Login_ReturnsBadRequest()
         {
@@ -291,8 +289,6 @@ namespace ForPractices.Tests
             Assert.False(string.IsNullOrEmpty(savedUser.PasswordHash));
         }
 
-
-
         [Fact]
         public async Task Login_ReturnsOk()
         {
@@ -353,8 +349,6 @@ namespace ForPractices.Tests
         }
 
 
-
-
         [Fact]
         public async Task ForgotPassword_ReturnsOk()
         {
@@ -378,21 +372,19 @@ namespace ForPractices.Tests
 
             var authController = new AuthController(context, config, jwtTokenService, emailServiceMock.Object);
 
-
-
-            var ForgotPasswordTest = new ForgotPasswordDto();
+            var ForgotPasswordTest = new ForgotPasswordDto
+            {
+                Email = "nobody@test.com"
+            };
 
             var result = await authController.ForgotPassword(ForgotPasswordTest);
-
 
             var okResult = Assert.IsType<OkObjectResult>(result);
             Assert.Equal("If this email user, a reset link has been sent", okResult.Value);
 
-            var userCount = await context.Users.CountAsync();
-            Assert.Equal(0, userCount);
+            emailServiceMock.Verify(x => x.SendEmailAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()), Times.Never);
+
         }
-
-
 
         [Fact]
         public async Task ForgotPassword_ReturnsFinallySentResetlink()
@@ -425,6 +417,7 @@ namespace ForPractices.Tests
             };
 
             var registerEmail = await authController.Register(User);
+
             var userfound = await context.Users.FirstOrDefaultAsync(x => x.Email == "tamim@test.com");
             Assert.NotNull(userfound);
 
@@ -438,12 +431,240 @@ namespace ForPractices.Tests
             var okResult = Assert.IsType<OkObjectResult>(result);
             Assert.Equal("If this email user, a reset link has been sent", okResult.Value);
 
+
             var userCheck = await context.Users.FirstOrDefaultAsync(x => x.Email == "tamim@test.com");
             Assert.NotNull(userCheck);
-            Assert.NotNull(userCheck.PasswordResetToken);
-            Assert.NotNull(userCheck.PasswordResetTokenExpiry > DateTime.UtcNow);
+            Assert.False(string.IsNullOrEmpty(userCheck.PasswordResetToken));
+
+            emailServiceMock.Verify(x => x.SendEmailAsync(It.Is<string>(b => b.Contains("tamim@test.com")), It.Is<string>(b => b.Contains("Reset your password")), It.Is<string>(b => b.Contains(userCheck.PasswordResetToken))), Times.Once);
+
+
+            Assert.True((userCheck.PasswordResetTokenExpiry < DateTime.UtcNow.AddMinutes(16)) && (userCheck.PasswordResetTokenExpiry > DateTime.UtcNow));
         }
 
+
+        [Fact]
+        public async Task ResetPassword_WithUnknownToken_ReturnsBadRequest()
+        {
+            // Arrange
+            var context = TestDbContextFactory.Create();
+
+            var configValues = new Dictionary<string, string>
+            {
+                { "Jwt:key", "ThisIsASecretKeyForTestingPurposeOnly123!" },
+                { "Jwt:Issuer", "TestIssuer" },
+                { "Jwt:Audience", "TestAudience" },
+                { "Jwt:AccessTokenExpiryMinutes", "15" }
+            };
+
+            IConfiguration config = new ConfigurationBuilder()
+                .AddInMemoryCollection(configValues)
+                .Build();
+
+            var jwtTokenService = new JwtTokenService(config);
+            var emailServiceMock = new Mock<IEmailService>();
+
+            var authController = new AuthController(context, config, jwtTokenService, emailServiceMock.Object);
+
+            var User = new RegisterRequestDto
+            {
+                Name = "Tamim",
+                Email = "tamim@test.com",
+                Password = "somePassword123!"
+            };
+
+            var mainPassword = User.Password;
+
+            var registerEmail = await authController.Register(User);
+
+            var userfound = await context.Users.FirstOrDefaultAsync(x => x.Email == "tamim@test.com");
+            Assert.NotNull(userfound);
+
+
+            var resetPasswordTest = new ResetPasswordDto
+            {
+                Token = "abced1654545615564654654654",
+                NewPassword = "newpassword123!"
+            };
+
+            var result = await authController.ResetPassword(resetPasswordTest);
+
+            var BadRequestResult = Assert.IsType<BadRequestObjectResult>(result);
+            Assert.Equal("Invalid or expired reset token", BadRequestResult.Value);
+
+
+            var user = await context.Users.FirstOrDefaultAsync(x => x.Email == "tamim@test.com");
+            Assert.NotNull(user);
+
+            Assert.True(BCrypt.Net.BCrypt.Verify(mainPassword, user.PasswordHash));
+            Assert.Null(user.PasswordResetToken);
+        }
+
+        [Fact]
+        public async Task ResetPassword_WithExpiryToken_ReturnsBadRequest()
+        {
+            // Arrange
+            var context = TestDbContextFactory.Create();
+
+            var configValues = new Dictionary<string, string>
+            {
+                { "Jwt:key", "ThisIsASecretKeyForTestingPurposeOnly123!" },
+                { "Jwt:Issuer", "TestIssuer" },
+                { "Jwt:Audience", "TestAudience" },
+                { "Jwt:AccessTokenExpiryMinutes", "15" }
+            };
+
+            IConfiguration config = new ConfigurationBuilder()
+                .AddInMemoryCollection(configValues)
+                .Build();
+
+            var jwtTokenService = new JwtTokenService(config);
+            var emailServiceMock = new Mock<IEmailService>();
+
+            var authController = new AuthController(context, config, jwtTokenService, emailServiceMock.Object);
+
+            context.Users.Add(new User
+            {
+                Name = "Tamim",
+                Email = "tamim@test.com",
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword("oldPassword123!"),
+                PasswordResetToken = "abced1654545615564654654654",
+                PasswordResetTokenExpiry = DateTime.UtcNow.AddMinutes(-5)
+            });
+            await context.SaveChangesAsync();
+
+            var oldPassword = "oldPassword123!";
+
+            var resetPasswordTest = new ResetPasswordDto
+            {
+                Token = "abced1654545615564654654654",
+                NewPassword = "newpassword123!"
+            };
+
+            var result = await authController.ResetPassword(resetPasswordTest);
+
+            var BadRequestResult = Assert.IsType<BadRequestObjectResult>(result);
+            Assert.Equal("Invalid or expired reset token", BadRequestResult.Value);
+
+
+            var user = await context.Users.FirstOrDefaultAsync(x => x.Email == "tamim@test.com");
+            Assert.NotNull(user);
+
+            Assert.True(BCrypt.Net.BCrypt.Verify(oldPassword, user.PasswordHash));
+            Assert.True(user.PasswordResetTokenExpiry < DateTime.UtcNow);
+        }
+
+        [Fact]
+        public async Task ResetPassword_WithValidToken_ReturnsOk()
+        {
+            // Arrange
+            var context = TestDbContextFactory.Create();
+
+            var configValues = new Dictionary<string, string>
+            {
+                { "Jwt:key", "ThisIsASecretKeyForTestingPurposeOnly123!" },
+                { "Jwt:Issuer", "TestIssuer" },
+                { "Jwt:Audience", "TestAudience" },
+                { "Jwt:AccessTokenExpiryMinutes", "15" }
+            };
+
+            IConfiguration config = new ConfigurationBuilder()
+                .AddInMemoryCollection(configValues)
+                .Build();
+
+            var jwtTokenService = new JwtTokenService(config);
+            var emailServiceMock = new Mock<IEmailService>();
+
+            var authController = new AuthController(context, config, jwtTokenService, emailServiceMock.Object);
+
+            context.Users.Add(new User
+            {
+                Name = "Tamim",
+                Email = "tamim@test.com",
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword("oldPassword123!"),
+                PasswordResetToken = "abced1654545615564654654654",
+                PasswordResetTokenExpiry = DateTime.UtcNow.AddMinutes(10)
+            });
+            await context.SaveChangesAsync();
+
+            var oldPassword = "oldPassword123!";
+
+            var resetPasswordTest = new ResetPasswordDto
+            {
+                Token = "abced1654545615564654654654",
+                NewPassword = "newpassword123!"
+            };
+
+            var result = await authController.ResetPassword(resetPasswordTest);
+
+            var OkResult = Assert.IsType<OkObjectResult>(result);
+            Assert.Equal("password has been reset successfully", OkResult.Value);
+
+
+            var user = await context.Users.FirstOrDefaultAsync(x => x.Email == "tamim@test.com");
+            Assert.NotNull(user);
+
+            Assert.False(BCrypt.Net.BCrypt.Verify(oldPassword, user.PasswordHash));
+            Assert.Null(user.PasswordResetToken);
+            Assert.Null(user.PasswordResetTokenExpiry);
+        }
+
+
+
+
+        [Fact]
+        public async Task ResetPassword_WithMissingToken_ReturnsBadRequest()
+        {
+            // Arrange
+            var context = TestDbContextFactory.Create();
+
+            var configValues = new Dictionary<string, string>
+             {
+                 { "Jwt:key", "ThisIsASecretKeyForTestingPurposeOnly123!" },
+                 { "Jwt:Issuer", "TestIssuer" },
+                 { "Jwt:Audience", "TestAudience" },
+                 { "Jwt:AccessTokenExpiryMinutes", "15" }
+             };
+
+            IConfiguration config = new ConfigurationBuilder()
+                .AddInMemoryCollection(configValues)
+                .Build();
+
+            var jwtTokenService = new JwtTokenService(config);
+            var emailServiceMock = new Mock<IEmailService>();
+
+            var authController = new AuthController(context, config, jwtTokenService, emailServiceMock.Object);
+
+            context.Users.Add(new User
+            {
+                Name = "Tamim",
+                Email = "tamim@test.com",
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword("oldPassword123!")
+            });
+            await context.SaveChangesAsync();
+
+            var oldPassword = "oldPassword123!";
+
+            var resetPasswordTest = new ResetPasswordDto
+            {
+                Token = null!,
+                NewPassword = "newpassword123!"
+            };
+
+            var result = await authController.ResetPassword(resetPasswordTest);
+
+            var BadRequestResult = Assert.IsType<BadRequestObjectResult>(result);
+            Assert.Equal("Invalid or expired reset token", BadRequestResult.Value);
+
+
+            var user = await context.Users.FirstOrDefaultAsync(x => x.Email == "tamim@test.com");
+            Assert.NotNull(user);
+
+            Assert.True(BCrypt.Net.BCrypt.Verify(oldPassword, user.PasswordHash));
+            Assert.False(BCrypt.Net.BCrypt.Verify("newpassword123!", user.PasswordHash));
+            Assert.Null(user.PasswordResetToken);
+            Assert.Null(user.PasswordResetTokenExpiry);
+        }
 
     }
 }
