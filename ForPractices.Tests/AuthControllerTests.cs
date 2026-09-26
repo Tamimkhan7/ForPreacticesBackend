@@ -643,6 +643,7 @@ namespace ForPractices.Tests
             });
             await context.SaveChangesAsync();
 
+
             var oldPassword = "oldPassword123!";
 
             var resetPasswordTest = new ResetPasswordDto
@@ -664,8 +665,319 @@ namespace ForPractices.Tests
             Assert.False(BCrypt.Net.BCrypt.Verify("newpassword123!", user.PasswordHash));
             Assert.Null(user.PasswordResetToken);
             Assert.Null(user.PasswordResetTokenExpiry);
+
         }
 
+
+        [Fact]
+        public async Task RefreshToken_ReturnsUnauthorized()
+        {
+            // Arrange
+            var context = TestDbContextFactory.Create();
+
+            var configValues = new Dictionary<string, string>
+             {
+                 { "Jwt:key", "ThisIsASecretKeyForTestingPurposeOnly123!" },
+                 { "Jwt:Issuer", "TestIssuer" },
+                 { "Jwt:Audience", "TestAudience" },
+                 { "Jwt:AccessTokenExpiryMinutes", "15" }
+             };
+
+            IConfiguration config = new ConfigurationBuilder()
+                .AddInMemoryCollection(configValues)
+                .Build();
+
+            var jwtTokenService = new JwtTokenService(config);
+            var emailServiceMock = new Mock<IEmailService>();
+
+            var authController = new AuthController(context, config, jwtTokenService, emailServiceMock.Object);
+
+            context.Users.Add(new User
+            {
+                Name = "Tamim",
+                Email = "tamim@test.com",
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword("Password123!")
+            });
+            await context.SaveChangesAsync();
+
+            var refreshToken = new RefreshTokenDto
+            {
+                RefreshToken = "tamim khan new refresh token that's unvalid"
+            };
+            var result = await authController.RefreshToken(refreshToken);
+
+            var UnauthorizedResult = Assert.IsType<UnauthorizedObjectResult>(result);
+            Assert.Equal("Invalid or expired refresh token", UnauthorizedResult.Value);
+
+
+            var user = await context.Users.FirstOrDefaultAsync(x => x.Email == "tamim@test.com");
+            Assert.NotNull(user);
+
+            Assert.Null(user.RefreshToken);
+        }
+
+
+        [Fact]
+        public async Task RefreshToken_WithTokenExiry_ReturnsUnauthorized()
+        {
+            // Arrange
+            var context = TestDbContextFactory.Create();
+
+            var configValues = new Dictionary<string, string>
+             {
+                 { "Jwt:key", "ThisIsASecretKeyForTestingPurposeOnly123!" },
+                 { "Jwt:Issuer", "TestIssuer" },
+                 { "Jwt:Audience", "TestAudience" },
+                 { "Jwt:AccessTokenExpiryMinutes", "15" }
+             };
+
+            IConfiguration config = new ConfigurationBuilder()
+                .AddInMemoryCollection(configValues)
+                .Build();
+
+            var jwtTokenService = new JwtTokenService(config);
+            var emailServiceMock = new Mock<IEmailService>();
+
+            var authController = new AuthController(context, config, jwtTokenService, emailServiceMock.Object);
+
+            context.Users.Add(new User
+            {
+                Name = "Tamim",
+                Email = "tamim@test.com",
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword("Password123!"),
+                RefreshToken = "tamim khan new refresh token that's unvalid",
+                RefreshTokenExpiry = DateTime.UtcNow.AddMinutes(-5)
+            });
+
+            await context.SaveChangesAsync();
+
+            var refreshToken = new RefreshTokenDto
+            {
+                RefreshToken = "tamim khan new refresh token that's unvalid"
+            };
+            var result = await authController.RefreshToken(refreshToken);
+
+            var UnauthorizedResult = Assert.IsType<UnauthorizedObjectResult>(result);
+            Assert.Equal("Invalid or expired refresh token", UnauthorizedResult.Value);
+
+
+            var user = await context.Users.FirstOrDefaultAsync(x => x.Email == "tamim@test.com");
+            Assert.NotNull(user);
+
+            Assert.NotNull(user.RefreshToken);
+            Assert.True(user.RefreshTokenExpiry < DateTime.UtcNow);
+        }
+
+
+        [Fact]
+        public async Task RefreshToken_WithTokenValid_ReturnsOk()
+        {
+            // Arrange
+            var context = TestDbContextFactory.Create();
+
+            var configValues = new Dictionary<string, string>
+             {
+                 { "Jwt:key", "ThisIsASecretKeyForTestingPurposeOnly123!" },
+                 { "Jwt:Issuer", "TestIssuer" },
+                 { "Jwt:Audience", "TestAudience" },
+                 { "Jwt:AccessTokenExpiryMinutes", "15" }
+             };
+
+            IConfiguration config = new ConfigurationBuilder()
+                .AddInMemoryCollection(configValues)
+                .Build();
+
+            var jwtTokenService = new JwtTokenService(config);
+            var emailServiceMock = new Mock<IEmailService>();
+
+            var authController = new AuthController(context, config, jwtTokenService, emailServiceMock.Object);
+
+            context.Users.Add(new User
+            {
+                Name = "Tamim",
+                Email = "tamim@test.com",
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword("Password123!"),
+                RefreshToken = "tamim khan new refresh token that's unvalid",
+                RefreshTokenExpiry = DateTime.UtcNow.AddMinutes(10)
+            });
+
+            await context.SaveChangesAsync();
+
+            var refreshToken = new RefreshTokenDto
+            {
+                RefreshToken = "tamim khan new refresh token that's unvalid"
+            };
+            var result = await authController.RefreshToken(refreshToken);
+
+            var OkResult = Assert.IsType<OkObjectResult>(result);
+
+            var authresponse = Assert.IsType<AuthResponseDto>(OkResult.Value);
+
+            Assert.False(string.IsNullOrEmpty(authresponse.AccessToken));
+            Assert.False(string.IsNullOrEmpty(authresponse.RefreshToken));
+
+
+            var user = await context.Users.FirstOrDefaultAsync(x => x.Email == "tamim@test.com");
+            Assert.NotNull(user);
+
+            Assert.NotNull(user.RefreshToken);
+            Assert.NotEqual("tamim khan new refresh token that's unvalid", user.RefreshToken);
+            Assert.True(user.RefreshTokenExpiry > DateTime.UtcNow);
+
+        }
+
+
+        [Fact]
+        public async Task Logout_ReturnsUnauthorized()
+        {
+            // Arrange
+            var context = TestDbContextFactory.Create();
+
+            var configValues = new Dictionary<string, string>
+             {
+                 { "Jwt:key", "ThisIsASecretKeyForTestingPurposeOnly123!" },
+                 { "Jwt:Issuer", "TestIssuer" },
+                 { "Jwt:Audience", "TestAudience" },
+                 { "Jwt:AccessTokenExpiryMinutes", "15" }
+             };
+
+            IConfiguration config = new ConfigurationBuilder()
+                .AddInMemoryCollection(configValues)
+                .Build();
+
+            var jwtTokenService = new JwtTokenService(config);
+            var emailServiceMock = new Mock<IEmailService>();
+
+            var authController = new AuthController(context, config, jwtTokenService, emailServiceMock.Object);
+
+            context.Users.Add(new User
+            {
+                Name = "Tamim",
+                Email = "tamim@test.com",
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword("Password123!")
+            });
+            await context.SaveChangesAsync();
+
+            var refreshToken = new RefreshTokenDto
+            {
+                RefreshToken = "tamim khan new refresh token that's unvalid"
+            };
+            var result = await authController.LogOut(refreshToken);
+
+            var UnauthorizedResult = Assert.IsType<UnauthorizedObjectResult>(result);
+            Assert.Equal("Invalid or expired refresh token", UnauthorizedResult.Value);
+
+
+            var user = await context.Users.FirstOrDefaultAsync(x => x.Email == "tamim@test.com");
+            Assert.NotNull(user);
+
+            Assert.Null(user.RefreshToken);
+        }
+
+
+
+
+        [Fact]
+        public async Task Logout_WithTokenExiry_ReturnsUnauthorized()
+        {
+            // Arrange
+            var context = TestDbContextFactory.Create();
+
+            var configValues = new Dictionary<string, string>
+             {
+                 { "Jwt:key", "ThisIsASecretKeyForTestingPurposeOnly123!" },
+                 { "Jwt:Issuer", "TestIssuer" },
+                 { "Jwt:Audience", "TestAudience" },
+                 { "Jwt:AccessTokenExpiryMinutes", "15" }
+             };
+
+            IConfiguration config = new ConfigurationBuilder()
+                .AddInMemoryCollection(configValues)
+                .Build();
+
+            var jwtTokenService = new JwtTokenService(config);
+            var emailServiceMock = new Mock<IEmailService>();
+
+            var authController = new AuthController(context, config, jwtTokenService, emailServiceMock.Object);
+
+            context.Users.Add(new User
+            {
+                Name = "Tamim",
+                Email = "tamim@test.com",
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword("Password123!"),
+                RefreshToken = "tamim khan new refresh token that's unvalid",
+                RefreshTokenExpiry = DateTime.UtcNow.AddMinutes(-5)
+            });
+
+            await context.SaveChangesAsync();
+
+            var refreshToken = new RefreshTokenDto
+            {
+                RefreshToken = "tamim khan new refresh token that's unvalid"
+            };
+            var result = await authController.LogOut(refreshToken);
+
+            var UnauthorizedResult = Assert.IsType<UnauthorizedObjectResult>(result);
+            Assert.Equal("Invalid or expired refresh token", UnauthorizedResult.Value);
+
+
+            var user = await context.Users.FirstOrDefaultAsync(x => x.Email == "tamim@test.com");
+            Assert.NotNull(user);
+
+            Assert.NotNull(user.RefreshToken);
+            Assert.True(user.RefreshTokenExpiry < DateTime.UtcNow);
+        }
+
+
+        [Fact]
+        public async Task Logout_ReturnsOk()
+        {
+            // Arrange
+            var context = TestDbContextFactory.Create();
+
+            var configValues = new Dictionary<string, string>
+             {
+                 { "Jwt:key", "ThisIsASecretKeyForTestingPurposeOnly123!" },
+                 { "Jwt:Issuer", "TestIssuer" },
+                 { "Jwt:Audience", "TestAudience" },
+                 { "Jwt:AccessTokenExpiryMinutes", "15" }
+             };
+
+            IConfiguration config = new ConfigurationBuilder()
+                .AddInMemoryCollection(configValues)
+                .Build();
+
+            var jwtTokenService = new JwtTokenService(config);
+            var emailServiceMock = new Mock<IEmailService>();
+
+            var authController = new AuthController(context, config, jwtTokenService, emailServiceMock.Object);
+
+            context.Users.Add(new User
+            {
+                Name = "Tamim",
+                Email = "tamim@test.com",
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword("Password123!"),
+                RefreshToken = "tamim khan new refresh token that's unvalid",
+                RefreshTokenExpiry = DateTime.UtcNow.AddMinutes(10)
+            });
+
+            await context.SaveChangesAsync();
+
+            var refreshToken = new RefreshTokenDto
+            {
+                RefreshToken = "tamim khan new refresh token that's unvalid"
+            };
+            var result = await authController.LogOut(refreshToken);
+
+            var OkResult = Assert.IsType<OkObjectResult>(result);
+            Assert.Equal("Logged out successfully", OkResult.Value);
+
+            var user = await context.Users.FirstOrDefaultAsync(x => x.Email == "tamim@test.com");
+            Assert.NotNull(user);
+
+            Assert.Null(user.RefreshToken);
+            Assert.Null(user.RefreshTokenExpiry);
+        }
     }
 }
 

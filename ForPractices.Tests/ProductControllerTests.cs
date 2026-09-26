@@ -551,7 +551,6 @@ namespace ForPractices.Tests
 
             var usercount = await context.Products.CountAsync();
             Assert.Equal(1, usercount);
-
         }
 
     }
