@@ -1,3 +1,4 @@
-.vs/nin/
+.vs/
+bin/
 obj/
 .env
