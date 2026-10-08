@@ -35,6 +35,8 @@ jobs:
     permissions:
       contents: read
       packages: write
+    outputs:
+      tags: ${{ steps.meta.outputs.tags }}
     steps:
       - uses: actions/checkout@v4
 
@@ -62,3 +64,27 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+  deploy-staging:
+    needs: push-image
+    runs-on: ubuntu-latest
+    environment: staging
+    env:
+      IMAGE_TAGS: ${{ needs.push-image.outputs.tags }}
+    steps:
+      - name: Deploy to staging (placeholder)
+        run: |
+          echo "Deploying to STAGING"
+          echo "$IMAGE_TAGS"
+
+  deploy-production:
+    needs: [push-image, deploy-staging]
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      IMAGE_TAGS: ${{ needs.push-image.outputs.tags }}
+    steps:
+      - name: Deploy to production (placeholder)
+        run: |
+          echo "Deploying to PRODUCTION"
+          echo "$IMAGE_TAGS"
