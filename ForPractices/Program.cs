@@ -9,6 +9,17 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var jwtKey = builder.Configuration["Jwt:key"];
+var jwtIssuer = builder.Configuration["Jwt:Issuer"];
+var jwtAudience = builder.Configuration["Jwt:Audience"];
+
+
+if (string.IsNullOrWhiteSpace(jwtKey) || Encoding.UTF8.GetByteCount(jwtKey) < 32)
+    throw new InvalidOperationException("Jwt:key is missing or too short (min 32 bytes).");
+
+if (string.IsNullOrWhiteSpace(jwtIssuer) || string.IsNullOrWhiteSpace(jwtAudience))
+    throw new InvalidOperationException("Jwt:Issuer and Jwt:Audience must be configured");
+
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
@@ -35,10 +46,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidIssuer = builder.Configuration["Jwt:Issuer"],
             ValidAudience = builder.Configuration["Jwt:Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!)),
+                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:key"]!)),
             ClockSkew = TimeSpan.Zero
         };
     });
+
+builder.Services.AddAuthorization();
 
 builder.Services.AddCors(options =>
 {
@@ -58,7 +71,7 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     await context.Database.MigrateAsync();
-    await DbSeeder.Seed(context);
+    await DbSeeder.Seed(context, app.Configuration);
 }
 
 if (app.Environment.IsDevelopment())
