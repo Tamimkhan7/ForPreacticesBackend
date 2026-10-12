@@ -5,23 +5,28 @@ namespace ForPractices.Data
 {
     public static class DbSeeder
     {
-        public static async Task Seed(AppDbContext context)
+        public static async Task Seed(AppDbContext context, IConfiguration config)
         {
-            var user = await context.Users.AnyAsync(x => x.Role == "Admin");
+            if (await context.Users.AnyAsync(x => x.Role == "Admin")) return;
 
-            if (!user)
+            var name = config["Admin:Name"] ?? "Admin";
+            var email = config["Admin:Email"];
+            var password = config["Admin:Password"];
+
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password) || password.Length < 12)
+                return;
+
+            var admin = new User
             {
-                var admin = new User
-                {
-                    Name = "Admin",
-                    Email = "admin123@gmail.com",
-                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin@123"),
-                    Role = "Admin"
-                };
+                Name = name,
+                Email = email,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(password),
+                Role = "Admin"
+            };
 
-                context.Users.Add(admin);
-                await context.SaveChangesAsync();
-            }
+            context.Users.Add(admin);
+            await context.SaveChangesAsync();
+
 
         }
 
