@@ -9,6 +9,12 @@ on:
 permissions:
   contents: read
 
+env:
+  ECR_REPOSITORY: forpractices-api
+  AWS_REGION: ap-southeast-1
+  AWS_ROLE_ARN: arn:aws:iam::314437260046:role/github-actions-forpractices
+  AWS_INSTANCE_ID: i-06e802252ee411a94
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -34,34 +40,30 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
-    outputs:
-      tags: ${{ steps.meta.outputs.tags }}
+      id-token: write   # needed for OIDC (no AWS keys stored in GitHub)
     steps:
       - uses: actions/checkout@v4
 
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - id: ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - id: vars
+        env:
+          REGISTRY: ${{ steps.ecr.outputs.registry }}
+        run: echo "image=${REGISTRY}/${ECR_REPOSITORY}:${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
+
       - uses: docker/setup-buildx-action@v3
-
-      - uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ghcr.io/${{ github.repository }}
-          tags: |
-            type=sha
-            type=raw,value=latest
 
       - uses: docker/build-push-action@v6
         with:
           context: ./ForPractices
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.vars.outputs.image }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -69,22 +71,127 @@ jobs:
     needs: push-image
     runs-on: ubuntu-latest
     environment: staging
-    env:
-      IMAGE_TAGS: ${{ needs.push-image.outputs.tags }}
     steps:
       - name: Deploy to staging (placeholder)
         run: |
-          echo "Deploying to STAGING"
-          echo "$IMAGE_TAGS"
+          echo "There is no separate staging server yet."
+          echo "Image tag for this run: ${GITHUB_SHA}"
 
   deploy-production:
     needs: [push-image, deploy-staging]
     runs-on: ubuntu-latest
-    environment: production
-    env:
-      IMAGE_TAGS: ${{ needs.push-image.outputs.tags }}
+    environment: production        # Required reviewers = manual approval
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      id-token: write
+    concurrency:
+      group: deploy-production
+      cancel-in-progress: false
     steps:
-      - name: Deploy to production (placeholder)
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Deploy to EC2 via SSM
+        env:
+          INSTANCE_ID: ${{ env.AWS_INSTANCE_ID }}
         run: |
-          echo "Deploying to PRODUCTION"
-          echo "$IMAGE_TAGS"
+          set -euo pipefail
+
+          ACCOUNT_ID="$(aws sts get-caller-identity --query Account --output text)"
+          REGISTRY="${ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
+          IMAGE="${REGISTRY}/${ECR_REPOSITORY}:${GITHUB_SHA}"
+
+          # ---- script that runs ON the server (as root, via SSM) ----
+          cat > deploy.sh <<'SCRIPT'
+          set -euo pipefail
+          export PATH="$PATH:/snap/bin"
+          if ! command -v aws >/dev/null 2>&1; then
+            snap install aws-cli --classic
+          fi
+
+          export DOCKER_CONFIG="$(mktemp -d)"
+          trap 'rm -rf "$DOCKER_CONFIG"' EXIT
+
+          aws ecr get-login-password --region "$REGION" | docker login --username AWS --password-stdin "$REGISTRY"
+          docker pull "$IMAGE"
+
+          PREV="$(docker inspect -f '{{.Config.Image}}' api 2>/dev/null || true)"
+
+          run_api() {
+            docker rm -f api >/dev/null 2>&1 || true
+            docker run -d --name api --restart unless-stopped --network appnet \
+              --env-file /home/ubuntu/app/app.env -p 8080:8080 \
+              -v uploads:/app/wwwroot/uploads "$1"
+          }
+
+          healthy() {
+            for i in $(seq 1 20); do
+              code="$(curl -s -o /dev/null -w '%{http_code}' http://localhost:8080/ || true)"
+              if [ -n "$code" ] && [ "$code" != "000" ]; then return 0; fi
+              sleep 3
+            done
+            return 1
+          }
+
+          run_api "$IMAGE"
+          if healthy; then
+            echo "Deploy OK: $IMAGE"
+            docker image prune -f >/dev/null
+          else
+            echo "Health check FAILED. Rolling back to: ${PREV:-none}"
+            docker logs api --tail 30 || true
+            if [ -n "$PREV" ]; then run_api "$PREV"; fi
+            exit 1
+          fi
+          SCRIPT
+
+          # prepend the values the script needs, then turn it into SSM parameters
+          {
+            echo "REGION='${AWS_REGION}'"
+            echo "REGISTRY='${REGISTRY}'"
+            echo "IMAGE='${IMAGE}'"
+            cat deploy.sh
+          } > full.sh
+          jq -R -s '{commands: split("\n")}' full.sh > params.json
+
+          # ---- send the command (retry in case the SSM agent is still starting) ----
+          CMD_ID=""
+          for attempt in 1 2 3 4 5; do
+            if CMD_ID="$(aws ssm send-command \
+                --instance-ids "$INSTANCE_ID" \
+                --document-name "AWS-RunShellScript" \
+                --comment "deploy ${GITHUB_SHA}" \
+                --parameters file://params.json \
+                --timeout-seconds 600 \
+                --query "Command.CommandId" --output text)"; then
+              break
+            fi
+            echo "SSM not ready (attempt ${attempt}/5). Retrying in 30s..."
+            CMD_ID=""
+            sleep 30
+          done
+          if [ -z "$CMD_ID" ]; then
+            echo "Could not send the command. Is the EC2 instance Running and is SSM online?"
+            exit 1
+          fi
+
+          # ---- wait for the result ----
+          STATUS="Pending"
+          for i in $(seq 1 60); do
+            STATUS="$(aws ssm get-command-invocation --command-id "$CMD_ID" --instance-id "$INSTANCE_ID" --query Status --output text 2>/dev/null || echo Pending)"
+            case "$STATUS" in
+              Success|Failed|Cancelled|TimedOut) break ;;
+            esac
+            sleep 10
+          done
+
+          echo "SSM status: ${STATUS}"
+          echo "----- server stdout -----"
+          aws ssm get-command-invocation --command-id "$CMD_ID" --instance-id "$INSTANCE_ID" --query StandardOutputContent --output text || true
+          echo "----- server stderr -----"
+          aws ssm get-command-invocation --command-id "$CMD_ID" --instance-id "$INSTANCE_ID" --query StandardErrorContent --output text || true
+
+          [ "$STATUS" = "Success" ]
