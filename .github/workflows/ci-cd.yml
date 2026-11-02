@@ -40,18 +40,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write   # needed for OIDC (no AWS keys stored in GitHub)
+      id-token: write  
     steps:
       - uses: actions/checkout@v4
-
-      # TEMPORARY: remove this step after the OIDC problem is fixed
-      - name: Debug OIDC claims
-        run: |
-          T=$(curl -sH "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
-            "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sts.amazonaws.com" | jq -r .value)
-          PAYLOAD=$(echo "$T" | cut -d. -f2 | tr '_-' '/+')
-          while [ $(( ${#PAYLOAD} % 4 )) -ne 0 ]; do PAYLOAD="${PAYLOAD}="; done
-          echo "$PAYLOAD" | base64 -d | jq '{sub, aud, repository}'
 
       - uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -89,7 +80,7 @@ jobs:
   deploy-production:
     needs: [push-image, deploy-staging]
     runs-on: ubuntu-latest
-    environment: production        # Required reviewers = manual approval
+    environment: production       
     timeout-minutes: 20
     permissions:
       contents: read
@@ -158,11 +149,16 @@ jobs:
           SCRIPT
 
           # prepend the values the script needs, then turn it into SSM parameters
+          # SSM runs commands with /bin/sh (dash), which has no "pipefail".
+          # So we save the script to a file on the server and run it with bash.
           {
-            echo "REGION='${AWS_REGION}'"
-            echo "REGISTRY='${REGISTRY}'"
-            echo "IMAGE='${IMAGE}'"
+            echo "export REGION='${AWS_REGION}'"
+            echo "export REGISTRY='${REGISTRY}'"
+            echo "export IMAGE='${IMAGE}'"
+            echo "cat > /tmp/deploy.sh <<'EOS'"
             cat deploy.sh
+            echo "EOS"
+            echo "bash /tmp/deploy.sh"
           } > full.sh
           jq -R -s '{commands: split("\n")}' full.sh > params.json
 
